@@ -49,5 +49,5 @@ console.log(arrOfSubj);
 // 5. Получить массив из предметов и отсортировать по количеству 
 //преподавателей на факультете от большего к меньшему
 
-const subjArr = Object.entries(subjects).sort((a, b) => b[1].teachers - a[1].teachers, );
+const subjArr = Object.entries(subjects).sort((a, b) => b[1].teachers - a[1].teachers);
 console.log(subjArr);
