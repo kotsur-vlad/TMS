@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+      //первая домашка
+      // С ниже приведенным массивом пользователей решить следующие задачи:
+
+      const users = [
+         {
+            id: 1,
+            username: "Michael Lawson",
+            age: 22,
+         },
+         {
+            id: 2,
+            username: "Tom Spot",
+            age: 32,
+         },
+         {
+            id: 3,
+            username: "Kate Ford",
+            age: 18,
+         }
+      ];
+
+      //   1. Получить средний возраст пользователей.
+      function getAverageAge(users) {
+         return users.reduce((sum, user) => sum + user.age, 0) / users.length;
+      }
+      console.log(getAverageAge(users));
+
+      //   2. Отсортировать массив по возрасту от большего к меньшему.
+      function sortUsersByAge(arr) {
+         return users.sort((a, b) => a.age - b.age);
+
+      };
+      console.log(sortUsersByAge(users));
+
+      //   3. Написать функцию, которая бы отвечала булевым значением на вопрос: есть ли пользователь соотвествуещего возраста. 
+      //      Например, есть ли пользователь, которому 22 года? Ответ должен быть: true
+      function AppropriateAgeUser(arr) {
+         let currentAge = prompt('Сколько тебе лет?');
+         let result = Boolean(users.find((user) => user.age == currentAge));
+         return result;
+      }
+      console.log(AppropriateAgeUser(users));
+
+      //вторая домашка
+      //С ниже приведенным объектом решить следующие задачи:
+
+
+      const subjects = {
+         mathematics: {
+            students: 200,
+            teachers: 6
+         },
+         biology: {
+            students: 120,
+            teachers: 6
+         },
+         geography: {
+            students: 60,
+            teachers: 2
+         },
+         chemistry: {
+            students: 100,
+            teachers: 3
+         }
+      };
+
+      // 4. Создать массив из объектов предметов
+      //вариант 1
+      const arrOfSubjects = Object.keys(subjects);
+      console.log(arrOfSubj)
+
+      //вариант 2
+      function getArrOfSubjects(obj) {
+         const newArrOfSubjects = Object.entries(subjects);
+
+         return newArrOfSubjects.forEach(alert);
+      };
+
+      console.log(getArrOfSubjects(subjects));
+
+      // 5. Получить массив из предметов и отсортировать по количеству преподавателей на факультете от большего к меньшему
+
+      const sortedArr = Object.entries(subjects).sort((a, b) => b[1].teachers - a[1].teachers);
+
+      console.log(sortedArr);
+
+   </script>
+</body>
+
+</html>
