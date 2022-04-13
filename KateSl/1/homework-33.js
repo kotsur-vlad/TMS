@@ -27,12 +27,10 @@ const users = [
 
 function getAverageAge(arr){
     let sum = 0;
-    //let count = 0;
     let length = arr.length;
 
     for(let i = 0; i < length; i++) {
         sum += arr[i].age;
-//        count += 1;
     }
     return sum / length;
 }
@@ -49,7 +47,7 @@ console.log(users);
 
 //Решение задачи №3
 //a.
-function isUserWithSuitableAge(arr, age) {
+function isSuitableAge(arr, age) {
     
     for(let i = 0; i < arr.length; i++) {
         if(arr[i].age === age) {
