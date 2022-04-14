@@ -1,6 +1,22 @@
 // Необходимо протипизировать данные
 
-const faculties = [
+        //doesn't work
+
+        // const enum Faculties {
+        //     HistoryDepartment = "History department",
+        //     DepartmentOfBiology = "Department of Biology"
+        //     FacultyOfMathematics = "Faculty of Mathematics" ,
+        //     FacultyOfDesign = "Faculty of Design",
+        // }
+
+type Faculty = {
+    id: number;
+    faculty: string;
+    subjects: string[];
+    countStudents: number;
+}
+
+const faculties: Faculty[] = [
     {
         id: 1,
         faculty: "History department",
@@ -27,7 +43,27 @@ const faculties = [
     }
 ];
 
-const movies = [
+type Movie = {
+    id: number;
+    title: string;
+    year: number;
+    released: string;
+    runtime: string;
+    genre: string[];
+    director: "David Yates" | "Cate Shortland";
+    writer: string;
+    actors: string[];
+    plot: string;
+    country: string;
+    poster: string;
+    imdbRating: number;
+    imdbVotes: number;
+    type: "movie";
+    boxOffice:string;
+    production:string;
+}
+
+const movies: Movie[] = [
     {
         id: 1,
         title: "Black Widow",
