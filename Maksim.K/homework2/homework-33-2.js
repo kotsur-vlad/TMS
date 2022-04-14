@@ -21,8 +21,16 @@ const subjects = {
     }
 };
 
-const arr = Object.keys(subjects).map((value, index) => Object.values(subjects[value]));
+
+// 4. Создать массив из объектов предметов
+const arr = Object.entries(subjects);
 
 console.log(arr);
+// ---------------------------------------------------------------------------------------------------------------------------------
 
-console.log(Object.keys(subjects));
+
+// 5. Получить массив из предметов и отсортировать по количеству преподавателей на факультете от большего к меньшему
+const subjectsArr = Object.entries(subjects).sort((a, b) => b[1].teachers - a[1].teachers);
+
+console.log(subjectsArr);
+// ---------------------------------------------------------------------------------------------------------------------------------
