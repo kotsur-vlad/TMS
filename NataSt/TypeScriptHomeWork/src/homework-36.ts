@@ -80,21 +80,15 @@ const users: Users[] = [
 
 //   1. Получить строку с именами и фамилиями всех пользователей через запятую.
 
-let stringOfUsers = users.reduce((previousString: string, user: Users, id: number) => {
-    return id !== users.length - 1 ? 
-    previousString + `${user.first_name} ${user.last_name}, ` 
-    : previousString + `${user.first_name} ${user.last_name}`
-}, '')
-
+let stringOfUsers = users.map((user: Users) => `${user.first_name} ${user.last_name}`).join(', ')
 console.log(stringOfUsers);
 
 
 //   2. Создать массив из emails по алфавиту.
 
 const getUsersEmails = (users: Users[]) => {
-    let usersEmails: string[] = [];
-    users.map((user: Users) => usersEmails.push(user.email));
-    return usersEmails.sort();
+    let usersEmails: string[] = users.map((user: Users) => user.email).sort();
+    return usersEmails;
 }
 
 console.log(getUsersEmails(users));
@@ -108,16 +102,12 @@ type NewUsers = {
     username: string;
 }
 
-const getNewUsersArray = (users: Users[]) => {
-    let newUsersArray: NewUsers[] = [];
-    users.map((user: Users) => newUsersArray.push({
-        'id': user.id,
-        'username': `${user.first_name} ${user.last_name}`
-    }));
-    return newUsersArray;
-}
+let newUsersArray: NewUsers[] = users.map(user => ({
+    'id': user.id,
+    'username': `${user.first_name} ${user.last_name}`,
+}));
 
-console.log(getNewUsersArray(users));
+console.log(newUsersArray);
 
 
 //   4. Создать массив юзеров, где они отсортированы по возрасту по возрастанию и все пользователи младше 40 лет.
@@ -134,17 +124,11 @@ console.log(sortedArrayOfUsers);
 //      d) количество пользователей старше 18
 
 const getInfo = (users: Users[]) => {
-    let info = {};
+    let info: {} = {};
     return info = {
         'averageAge': users.reduce((a, b) => a + b.age, 0)/users.length,
-        'usersOver30': users.reduce((acc, user) => {
-            if (user.age > 30) acc++
-            return acc
-        }, 0),
-        'usersOver40': users.reduce((acc, user) => {
-            if (user.age > 40) acc++
-            return acc
-        }, 0),
+        'usersOver30': users.filter(user => user.age > 30).length,
+        'usersOver40': users.filter(user => user.age > 40).length,
         'usersOver18': users.reduce((acc, user) => {
             if (user.age > 18) acc++
             return acc
