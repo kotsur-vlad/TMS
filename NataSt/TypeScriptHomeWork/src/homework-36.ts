@@ -160,6 +160,14 @@ console.log(getInfo(users));
 //      Объект должен состоять только из ключей существующих фамилий в этом массиве.
 //      Например в этом массиве нет фамилии с букву Y, а значит и такого поля не должно быть в объекте
 
-const getListOfSurnames = (users: Users[]) => {
-    let listOfSurnames = {};
+
+function getListOfSurnames(users: Users[]) {
+    return users.reduce((acc: {}, user: Users) => {
+        acc[user.last_name[0].toLowerCase()] ? 
+        acc[user.last_name[0].toLowerCase()].push(user.last_name) 
+        : acc[user.last_name[0].toLowerCase()] = [ user.last_name ];
+        return acc;
+    }, {});
 }
+
+console.log(getListOfSurnames(users));
